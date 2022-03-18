@@ -1,0 +1,21 @@
+<?xml version="1.0"?> <!-- This line is optional, for syntax highlighting -->
+<launch>     
+    <!-- Parameters for NordboLRS6 -->
+    <arg name="sensor_ip" 			    default="192.168.0.100"        doc="IP address of the Force Torque sensor" />
+
+    <!-- Launch configuration parameters -->
+    <arg name="nordbo_lrs6_node_name" default="NordboLRS6_node"  doc="Name of the node or nodelet instance."/>
+    <arg name="respawn"               default="true"             doc="Should NordboLRS6 be respawned upon crash?"/>
+    <arg name="output"                default="screen"           doc="Where should NordboLRS6 output be sent to?"/>
+    
+
+    <node pkg="nordbo_lrs6"
+          type="ftsensoreth-py"
+          name="nordbo_sensor_node"
+          respawn="$(arg respawn)"
+          output="$(arg output)"
+          >	
+    </node>
+    
+</launch>
+ 
